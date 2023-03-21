@@ -1,0 +1,40 @@
+display_information:
+  name: Dream Machine
+  description: Dreaming with Stable Diffusion
+  background_color: "#21181d"
+features:
+  bot_user:
+    display_name: Dream Machine
+    always_online: false
+  shortcuts:
+    - name: hello
+      type: global
+      callback_id: hello-shortcut
+      description: Receive a Greeting
+  slash_commands:
+    - command: /dream
+      description: start dreaming
+      usage_hint: clouds electronic circuits spaceshuttle flying, by Dali
+      should_escape: false
+oauth_config:
+  scopes:
+    bot:
+      - app_mentions:read
+      - channels:join
+      - chat:write
+      - commands
+      - files:write
+      - im:history
+      - im:write
+      - reactions:write
+      - files:read
+settings:
+  event_subscriptions:
+    bot_events:
+      - app_mention
+      - message.im
+  interactivity:
+    is_enabled: true
+  org_deploy_enabled: false
+  socket_mode_enabled: true
+  token_rotation_enabled: false

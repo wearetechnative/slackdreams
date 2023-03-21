@@ -17,4 +17,6 @@
 - Glued to Slack by [Pim Snel](https://github.com/mipmip)
 - Also see [Teledream](https://github.com/mipmip/teledream)
 - For her wunderful blog [Christine Dodrill](https://xeiaso.net/blog/stable-diffusion-nixos)
-- TechNative, Most fun startup in The Netherlands ![](logotn.png)
+- [TechNative](https://technative.eu), Most fun startup in The Netherlands
+
+![](logotn.png)
