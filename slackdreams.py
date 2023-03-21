@@ -30,7 +30,7 @@ def slack_msg_with_files(text, file_uploads_data, channel):
     upload = client.files_upload_v2(
         file_uploads=file_uploads_data,
         channel=channel,
-        initial_comment="Done dreaming" + text,
+        initial_comment="Done dreaming... " + text,
     )
 
 def get_new_files(text):
@@ -73,7 +73,7 @@ def dream_command(ack, body, logger):
     text = body["text"]
     run_stable_diffusion(text)
     file_uploads = get_new_files(text)
-    slack_msg_with_files( text='Done dreaming: '+text, file_uploads_data=file_uploads, channel=channel_id )
+    slack_msg_with_files( text=text, file_uploads_data=file_uploads, channel=channel_id )
 
 if __name__ == "__main__":
     print("Starting Dream Machine")
