@@ -2,6 +2,9 @@ import os, re
 from os import listdir
 from os.path import isfile, join
 
+import json
+import pathlib
+
 from slack_sdk.web import WebClient
 from slack_sdk.socket_mode import SocketModeClient
 from slack_sdk.socket_mode.response import SocketModeResponse
@@ -11,9 +14,6 @@ from slack_bolt import App
 from slack_bolt.adapter.socket_mode import SocketModeHandler
 
 from slack_sdk.web.async_client import AsyncWebClient
-
-import json
-import pathlib
 
 THISDIR = pathlib.Path(__file__).parent.absolute()
 with open(os.path.join(THISDIR, 'config.json')) as f:
