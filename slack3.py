@@ -9,11 +9,6 @@ from slack_bolt.adapter.socket_mode import SocketModeHandler
 
 from slack_sdk.web.async_client import AsyncWebClient
 
-#from dotenv import load_dotenv
-
-SLACK_APP_TOKEN="xapp-1-A0501C01GSC-4990359212273-07c020548263e3235bcb4d4d7e3d976120d5ed576402da4dc7c7cfa71526bfcf"
-SLACK_BOT_TOKEN="xoxb-804402372193-4978877842851-mIwYKtXvKD3QzzVFp6s5fzWR"
-
 app = App(token=SLACK_BOT_TOKEN)
 client = WebClient(token=SLACK_BOT_TOKEN)
 
@@ -67,7 +62,6 @@ def dream_command(ack, body, logger):
         channel=channel_id
     )
 
-    #print(body)
     logger.info(body)
 
 if __name__ == "__main__":

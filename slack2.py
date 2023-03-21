@@ -5,8 +5,6 @@ import logging
 from slack_sdk import WebClient
 from slack_sdk.errors import SlackApiError
 
-SLACK_BOT_TOKEN="xoxb-804402372193-4978877842851-mIwYKtXvKD3QzzVFp6s5fzWR"
-
 logging.basicConfig(level=logging.DEBUG)
 
 def sendMessage(slack_client, msg):
@@ -14,7 +12,7 @@ def sendMessage(slack_client, msg):
         slack_client.chat_postMessage(
         channel='#dreaming',
         text=msg
-    )#.get()
+    )
     except SlackApiError as e:
         logging.error('Request to Slack API Failed: {}.'.format(e.response.status_code))
         logging.error(e.response)
