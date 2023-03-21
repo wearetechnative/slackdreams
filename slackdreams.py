@@ -27,15 +27,11 @@ app = App(token=SLACK_BOT_TOKEN)
 client = WebClient(token=SLACK_BOT_TOKEN)
 
 def slack_msg_with_files(text, file_uploads_data, channel):
-    print('uploading')
-
     upload = client.files_upload_v2(
         file_uploads=file_uploads_data,
         channel=channel,
-        initial_comment="Visuals of " + text,
+        initial_comment="Done dreaming" + text,
     )
-
-    print("Result of Slack send:\n%s" % upload)
 
 def get_new_files(text):
     outpath = "outputs/txt2img-samples"
@@ -51,6 +47,7 @@ def get_new_files(text):
 
 def run_stable_diffusion(text):
 
+    print("New dream with: " + text)
     cmd = ( "/home/pim/.conda/envs/ldm/bin/python "
             + ROOTDIR + "/optimizedSD/optimized_txt2img.py "
             "--turbo --H 512 --W 768 "
@@ -67,7 +64,7 @@ def mention_handler(body, logger):
     channel_id = body["event"]["channel"]
     run_stable_diffusion(text)
     file_uploads = get_new_files(text)
-    slack_msg_with_files( text='Done dreaming: '+text, file_uploads_data=file_uploads, channel=channel_id )
+    slack_msg_with_files( text=text, file_uploads_data=file_uploads, channel=channel_id )
 
 @app.command("/dream")
 def dream_command(ack, body, logger):
